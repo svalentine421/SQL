@@ -1,0 +1,26 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, aisle INTEGER, stock INTEGER);
+
+INSERT INTO store VALUES (1, "hats", 15, 1, 100);
+INSERT INTO store VALUES (2, "practice shirts", 20, 2, 150);
+INSERT INTO store VALUES (3, "game jerseys", 25, 2, 150);
+INSERT INTO store VALUES (4, "pants", 20, 3, 200);
+INSERT INTO store VALUES (5, "socks", 15, 4, 85);
+INSERT INTO store VALUES (6, "sliding shorts", 30, 5, 150);
+INSERT INTO store VALUES (7, "cleats", 80, 6, 150);
+INSERT INTO store VALUES (8, "helmets", 45, 7, 150);
+INSERT INTO store VALUES (9, "aluminum bats", 100, 8, 250);
+INSERT INTO store VALUES (10, "batting gloves", 25, 9, 135);
+INSERT INTO store VALUES (11, "protective batting gear", 50, 10, 60);
+INSERT INTO store VALUES (12, "field gloves", 100, 11, 180);
+INSERT INTO store VALUES (13, "catchers gear", 150, 12, 90);
+INSERT INTO store VALUES (14, "sunglasses", 20, 13, 45);
+INSERT INTO store VALUES (15, "sandals", 25, 14, 30);
+
+--display the table in order based on which aisle the item is in the store
+SELECT * FROM store ORDER BY aisle asc;
+
+--display the items priced greater than, or equal to 50 dollars, and order it by the aisle the item is in
+SELECT * FROM store WHERE price >= 50 ORDER BY aisle;
+
+--show the sum of how much stock in total is in the store
+SELECT SUM(price*stock) FROM store;
