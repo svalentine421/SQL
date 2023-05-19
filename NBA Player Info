@@ -57,7 +57,7 @@ INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('Russell Westbrook','Oklahoma City Thunder','West','Apr 8, 2019','G','6''3',200,30,2008,10,'2018-2019',2019,'UCLA',0.5,190,90,0);
 
 --display the average age of players in the NBA
-SELECT AVG(Age) AS average_age FROM players;
+SELECT ROUND(AVG(Age)) AS average_age FROM players;
 
 --display the max height of a player in the NBA
 SELECT MAX(Height) AS max_height FROM players;
