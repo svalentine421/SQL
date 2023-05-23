@@ -1,0 +1,41 @@
+CREATE TABLE actor (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname TEXT, age INTEGER);
+
+INSERT INTO actor (fullname, age) VALUES ("Ryan Reynolds", 46);
+INSERT INTO actor (fullname, age) VALUES ("Justin Timberlake", 42);
+INSERT INTO actor (fullname, age) VALUES ("Ashton Kutcher", 45);
+INSERT INTO actor (fullname, age) VALUES ("Blake Lively", 35);
+INSERT INTO actor (fullname, age) VALUES ("Jessica Biel", 41);
+INSERT INTO actor (fullname, age) VALUES ("Mila Kunis", 39);
+SELECT * FROM actor;
+
+CREATE TABLE movie (id INTEGER PRIMARY KEY AUTOINCREMENT, actor_id INTEGER, title_id TEXT);
+
+INSERT INTO movie (actor_id, title_id) VALUES (5, "Stealth");
+INSERT INTO movie (actor_id, title_id) VALUES (3, "Killers");
+INSERT INTO movie (actor_id, title_id) VALUES (1, "Deadpool");
+INSERT INTO movie (actor_id, title_id) VALUES (6, "Bad Moms");
+INSERT INTO movie (actor_id, title_id) VALUES (2, "In Time");
+INSERT INTO movie (actor_id, title_id) VALUES (4, "Accepted");
+SELECT * FROM movie;
+
+CREATE TABLE married (id INTEGER PRIMARY KEY AUTOINCREMENT, person1_id INTEGER, person2_id INTEGER);
+
+INSERT INTO married (person1_id, person2_id) VALUES (1,4);
+INSERT INTO married (person1_id, person2_id) VALUES (2,5);
+INSERT INTO married (person1_id, person2_id) VALUES (3,6);
+SELECT * FROM married;
+
+--display table showing which movies the actors played in--
+SELECT movie.title_id, actor.fullname
+    FROM actor
+    JOIN movie
+    ON actor.id=movie.actor_id
+    ORDER BY title_id asc;
+    
+--display table showing which actors are married to each other--    
+SELECT a.fullname, b.fullname
+    FROM married
+    JOIN actor a
+    ON a.id = married.person1_id
+    JOIN actor b
+    ON b.id = married.person2_id;
